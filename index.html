@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pure Travel Ltd | New Zealand Private Tours</title>
+  <meta name="description" content="Pure Travel Ltd provides New Zealand custom tours, private charters, Queenstown airport transfers, and activity bookings." />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #0f172a; background: #fff; }
+    a { text-decoration: none; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); border-bottom: 1px solid #e5e7eb; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 16px; }
+    .logo { font-weight: 800; font-size: 20px; }
+    nav { display: flex; gap: 24px; font-size: 14px; }
+    nav a { color: #475569; }
+    nav a:hover { color: #047857; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .lang-switch { display: flex; border: 1px solid #d1d5db; border-radius: 999px; padding: 4px; background: #fff; }
+    .lang-switch button { border: 0; background: transparent; padding: 7px 12px; border-radius: 999px; cursor: pointer; font-weight: 700; color: #64748b; }
+    .lang-switch button.active { background: #047857; color: #fff; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px; border-radius: 999px; font-weight: 700; }
+    .btn-green { background: #10b981; color: #fff; }
+    .btn-green:hover { background: #059669; }
+    .btn-darkgreen { background: #047857; color: #fff; }
+    .btn-outline { border: 1px solid rgba(255,255,255,.7); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .hero { position: relative; background: linear-gradient(135deg, #064e3b, #020617 50%, #164e63); color: #fff; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; padding: 90px 20px; }
+    .pill { display: inline-flex; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.16); margin-bottom: 22px; font-size: 14px; }
+    h1 { font-size: clamp(42px, 6vw, 70px); line-height: 1.05; margin: 0; font-weight: 900; letter-spacing: -1px; }
+    .hero-sub { color: #6ee7b7; font-size: 22px; font-weight: 800; margin: 18px 0 0; }
+    .hero-desc { color: rgba(255,255,255,.82); font-size: 18px; line-height: 1.8; max-width: 580px; margin: 24px 0 0; }
+    .hero-buttons { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+    .hero-card { background: rgba(255,255,255,.1); padding: 14px; border-radius: 32px; box-shadow: 0 25px 60px rgba(0,0,0,.32); }
+    .hero-card img { width: 100%; height: 420px; object-fit: cover; border-radius: 24px; display: block; }
+    section { padding: 70px 0; }
+    .section-title { text-align: center; font-size: 36px; margin: 0 0 36px; font-weight: 900; }
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 26px; overflow: hidden; box-shadow: 0 10px 25px rgba(15,23,42,.06); transition: .2s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(15,23,42,.12); }
+    .card img { width: 100%; height: 165px; object-fit: cover; display: block; }
+    .card-body { padding: 22px; }
+    .icon { font-size: 30px; }
+    h3 { margin: 12px 0 8px; font-size: 19px; }
+    .muted { color: #64748b; line-height: 1.7; font-size: 14px; }
+    .gray { background: #f8fafc; }
+    .routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .route { background: #fff; border-radius: 26px; padding: 26px; box-shadow: 0 10px 25px rgba(15,23,42,.06); }
+    .tag { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #ecfdf5; color: #047857; font-weight: 800; font-size: 13px; margin-bottom: 10px; }
+    .fleet { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .fleet img { width: 100%; height: 460px; object-fit: cover; border-radius: 32px; box-shadow: 0 22px 50px rgba(15,23,42,.18); }
+    .eyebrow { color: #047857; font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .fleet h2 { font-size: 40px; margin: 12px 0 16px; line-height: 1.15; }
+    .fleet p { color: #475569; font-size: 18px; line-height: 1.8; }
+    .points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+    .point { background: #ecfdf5; color: #064e3b; font-weight: 800; border-radius: 18px; padding: 15px; font-size: 14px; }
+    .contact { background: #020617; color: #fff; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .contact h2 { font-size: 40px; margin: 0; }
+    .contact p { color: #cbd5e1; line-height: 1.8; }
+    .qr-card { background: #fff; color: #0f172a; border-radius: 32px; padding: 28px; box-shadow: 0 25px 60px rgba(0,0,0,.3); display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center; }
+    .qr-box { width: 160px; height: 160px; border: 2px dashed #059669; border-radius: 26px; background: #ecfdf5; color: #065f46; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 900; font-size: 14px; }
+    footer { background: #020617; color: #64748b; text-align: center; padding: 28px 20px; font-size: 14px; }
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hero-grid, .fleet, .contact-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .routes { grid-template-columns: 1fr; }
+      .hero-card img { height: 300px; }
+    }
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+      .points { grid-template-columns: 1fr; }
+      .qr-card { grid-template-columns: 1fr; }
+      .header-actions .btn { display: none; }
+      .hero-grid { padding-top: 55px; padding-bottom: 55px; }
+      .section-title, .fleet h2, .contact h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Pure Travel Ltd</div>
+      <nav>
+        <a href="#services" data-i18n="navServices">服务</a>
+        <a href="#routes" data-i18n="navRoutes">路线</a>
+        <a href="#fleet" data-i18n="navFleet">车队</a>
+        <a href="#contact" data-i18n="navContact">联系</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <button id="btnZh" class="active" onclick="setLang('zh')">中文</button>
+          <button id="btnEn" onclick="setLang('en')">EN</button>
+        </div>
+        <a class="btn btn-darkgreen" href="#contact" data-i18n="enquire">微信咨询</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">Queenstown · South Island · New Zealand</div>
+        <h1 data-i18n="heroTitle">新西兰高端定制旅行</h1>
+        <p class="hero-sub" data-i18n="heroSub">包车 / 定制游 / 接送机 / 景点门票</p>
+        <p class="hero-desc" data-i18n="heroDesc">Pure Travel Ltd 位于皇后镇，专注新西兰南岛私享旅行服务。适合亲子家庭、情侣蜜月、朋友小团和商务接待。</p>
+        <div class="hero-buttons">
+          <a class="btn btn-green" href="#contact" data-i18n="enquire">微信咨询</a>
+          <a class="btn btn-outline" href="tel:+6421801579" data-i18n="phone">电话联系</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1400&q=80" alt="Mercedes tour vehicle">
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title" data-i18n="servicesTitle">我们的服务</h2>
+      <div class="cards" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section id="routes" class="gray">
+    <div class="container">
+      <h2 class="section-title" data-i18n="routesTitle">热门路线</h2>
+      <div class="routes" id="routesGrid"></div>
+    </div>
+  </section>
+
+  <section id="fleet">
+    <div class="container fleet">
+      <div>
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1400&q=80" alt="Mercedes V-Class vehicle">
+      </div>
+      <div>
+        <div class="eyebrow">Mercedes Fleet</div>
+        <h2 data-i18n="fleetTitle">奔驰高端旅游车服务</h2>
+        <p data-i18n="fleetSub">适合皇后镇接送机、南岛包车、多日定制游和高端商务接待。</p>
+        <div class="points" id="fleetPoints"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 data-i18n="contactTitle">联系我们</h2>
+        <p data-i18n="contactDesc">发送人数、日期、预算和想玩的项目，我们可以帮你整理路线、车辆和活动顺序。</p>
+        <div class="hero-buttons">
+          <a class="btn btn-green" href="tel:+6421801579">+64 21 801 579</a>
+          <a class="btn btn-outline" href="mailto:info@puretravel.co.nz">info@puretravel.co.nz</a>
+        </div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-box">WeChat QR<br>二维码位置</div>
+        <div>
+          <h3 data-i18n="wechatText">微信扫码或搜索添加</h3>
+          <p class="muted" data-i18n="wechatId">WeChat: 请填写你的微信号</p>
+          <p class="muted" data-i18n="wechatTip">建议后期把这里替换成你的微信二维码图片，客户可以直接扫码咨询，转化率会比邮箱更高。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© Pure Travel Ltd. New Zealand Private Tours & Transfers.</footer>
+
+  <script>
+    const data = {
+      zh: {
+        navServices: "服务", navRoutes: "路线", navFleet: "车队", navContact: "联系",
+        heroTitle: "新西兰高端定制旅行",
+        heroSub: "包车 / 定制游 / 接送机 / 景点门票",
+        heroDesc: "Pure Travel Ltd 位于皇后镇，专注新西兰南岛私享旅行服务。适合亲子家庭、情侣蜜月、朋友小团和商务接待。",
+        enquire: "微信咨询", phone: "电话联系",
+        servicesTitle: "我们的服务", routesTitle: "热门路线",
+        fleetTitle: "奔驰高端旅游车服务",
+        fleetSub: "适合皇后镇接送机、南岛包车、多日定制游和高端商务接待。",
+        contactTitle: "联系我们",
+        contactDesc: "发送人数、日期、预算和想玩的项目，我们可以帮你整理路线、车辆和活动顺序。",
+        wechatText: "微信扫码或搜索添加",
+        wechatId: "WeChat: 请填写你的微信号",
+        wechatTip: "建议后期把这里替换成你的微信二维码图片，客户可以直接扫码咨询，转化率会比邮箱更高。",
+        fleetPoints: ["奔驰7座商务车型", "中文司导服务", "适合家庭与小团", "行李空间更安心", "正规旅游用途", "可安排机场接送"],
+        services: [
+          { image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80", icon: "🧭", title: "新西兰定制旅行", desc: "根据人数、预算、季节和旅行节奏，设计专属新西兰行程。" },
+          { image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", icon: "🚐", title: "皇后镇包车服务", desc: "本地中文司导，适合家庭、朋友小团及高端私享团。" },
+          { image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80", icon: "✈️", title: "机场接送", desc: "皇后镇机场与酒店接送，适合携带行李出行。" },
+          { image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80", icon: "🎫", title: "景点门票预订", desc: "缆车、峡湾、直升机、跳伞等热门项目预订。" }
+        ],
+        routes: [
+          { title: "皇后镇一日游", tag: "轻松", desc: "缆车 + 箭镇 + 湖边风光" },
+          { title: "米佛峡湾", tag: "经典", desc: "南岛必去景点，适合包车慢玩" },
+          { title: "库克山", tag: "风光", desc: "冰川、雪山与湖景路线" }
+        ]
+      },
+      en: {
+        navServices: "Services", navRoutes: "Routes", navFleet: "Fleet", navContact: "Contact",
+        heroTitle: "Premium New Zealand Travel",
+        heroSub: "Private Charter / Custom Tours / Airport Transfers / Tickets",
+        heroDesc: "Pure Travel Ltd is based in Queenstown, specialising in private South Island travel services for families, couples, small groups, and business travellers.",
+        enquire: "WeChat Enquiry", phone: "Call Us",
+        servicesTitle: "Our Services", routesTitle: "Popular Routes",
+        fleetTitle: "Premium Mercedes Tour Vehicle Service",
+        fleetSub: "Ideal for Queenstown airport transfers, South Island charters, multi-day custom tours, and premium business travel.",
+        contactTitle: "Contact Us",
+        contactDesc: "Send us your group size, travel dates, budget, and preferred activities. We can help organise your route, vehicle, and activity schedule.",
+        wechatText: "Scan or search to add WeChat",
+        wechatId: "WeChat: Please add your WeChat ID",
+        wechatTip: "Replace this box with your WeChat QR code later so customers can scan and contact you directly.",
+        fleetPoints: ["Mercedes 7-seater vehicle", "Local driver-guide service", "Great for families and small groups", "Comfortable luggage space", "Commercial tourism use", "Airport transfers available"],
+        services: [
+          { image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80", icon: "🧭", title: "Custom Tours", desc: "Tailored itineraries based on your group size, budget, season, and travel style." },
+          { image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", icon: "🚐", title: "Private Charter", desc: "Comfortable private transport with local experience for families and small groups." },
+          { image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80", icon: "✈️", title: "Airport Transfers", desc: "Reliable Queenstown airport pickups and hotel transfers." },
+          { image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80", icon: "🎫", title: "Activity Booking", desc: "Book popular activities like gondola, cruises, helicopter tours, and skydiving." }
+        ],
+        routes: [
+          { title: "Queenstown Day Tour", tag: "Easy", desc: "Gondola + Arrowtown + lake views" },
+          { title: "Milford Sound", tag: "Classic", desc: "A South Island must-see with private charter comfort" },
+          { title: "Mt Cook", tag: "Scenic", desc: "Glaciers, alpine views, and turquoise lakes" }
+        ]
+      }
+    };
+
+    function renderCards(lang) {
+      const t = data[lang];
+      document.getElementById("servicesGrid").innerHTML = t.services.map(s => `
+        <div class="card">
+          <img src="${s.image}" alt="${s.title}">
+          <div class="card-body">
+            <div class="icon">${s.icon}</div>
+            <h3>${s.title}</h3>
+            <p class="muted">${s.desc}</p>
+          </div>
+        </div>
+      `).join("");
+
+      document.getElementById("routesGrid").innerHTML = t.routes.map(r => `
+        <div class="route">
+          <div class="tag">${r.tag}</div>
+          <h3>${r.title}</h3>
+          <p class="muted">${r.desc}</p>
+        </div>
+      `).join("");
+
+      document.getElementById("fleetPoints").innerHTML = t.fleetPoints.map(p => `
+        <div class="point">✅ ${p}</div>
+      `).join("");
+    }
+
+    function setLang(lang) {
+      const t = data[lang];
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) el.textContent = t[key];
+      });
+      document.getElementById("btnZh").classList.toggle("active", lang === "zh");
+      document.getElementById("btnEn").classList.toggle("active", lang === "en");
+      renderCards(lang);
+    }
+
+    setLang("zh");
+  </script>
+</body>
+</html>
